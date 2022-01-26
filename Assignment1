@@ -1,0 +1,39 @@
+use AdventureWorks2019;
+/*Question1:*/
+select ProductID, Name, Color, ListPrice from Production.Product;
+/*Question2:*/
+Select ProductID, Name, Color, ListPrice from Production.Product 
+Where ListPrice != 0;
+/*Question3:*/
+Select ProductID, Name, Color, ListPrice from Production.Product 
+Where Color is NULL;
+/*Question4:*/
+Select ProductID, Name, Color, ListPrice from Production.Product 
+Where Color is Not NULL;
+/*Question5:*/
+Select ProductID, Name, Color, ListPrice from Production.Product 
+Where Color is Not NULL and ListPrice > 0;
+/*Question6*/
+Select Concat( Name,' ', Color) As NameWithColor From Production.Product 
+Where Color is Not NULL;
+/*Question7*/
+Select top 6 Concat( 'Name: ',Name,' -- ', 'Color: ', Color) From Production.Product 
+Where Color is Not NULL;
+/*Question8*/
+Select ProductID, Name from Production.Product Where ProductID Between 400 And 500;
+/*Question9*/
+Select ProductID, Name, Color from Production.Product Where Color = 'Black' or Color = 'Blue'; 
+/*Question10*/
+Select Name from Production.Product Where Name Like 's%'; 
+/*Question11*/
+Select Name, ListPrice from Production.Product Where Name Like 's%' Order By Name asc;
+/*Question12*/
+Select Name, ListPrice from Production.Product Where Name Like 'a%' or Name Like 's%' Order By Name asc;
+/*Question13*/
+Select Name from Production.Product Where Name Like 'SPO[^k]%' Order By Name asc;
+/*Question14*/
+Select Distinct Color from Production.Product Order By Color Desc;
+/*Question15*/
+Select Distinct ProductSubcategoryID, Color From Production.Product
+Where ProductSubcategoryID is Not Null and Color is not Null
+Order By ProductSubcategoryID, Color;
